@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The story of nutriverse so far</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ernest Guevarra" />
+    <meta name="date" content="2022-06-07" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# The story of nutriverse so far
+]
+.subtitle[
+## From addressing personal project needs and small project team requirements to potentially creating and nurturing a community of users and developers
+]
+.author[
+### Ernest Guevarra
+]
+.date[
+### 2022-06-07
+]
+
+---
+
+
+
+
+
+
+# The context
+
+* part of a small team of nutrition practitioners that develop and implement various types of nutrition surveys;
+
+* use of R not common among nutritionists, nutrition data analysts;
+
+* team setup based on per project workflows with R scripts/code re-used by each project;
+
+* R scripts shared by email and/or Dropbox with no use of any version control system.
+
+---
+
+# Solutions?
+
+* Standardise and distribute our R scripts using workflows based on RAnalyticFlow
+
+    * still faced issues with package dependencies
+    
+    * still had to move commonly used functions into each workflow created
+    
+    * workflow tool itself had cumbersome system and R dependencies (Java, rJava, JavaGD)
+    
+* Should we try to structure and distribute our code into R packages?
+
+    * None of us knew how to develop R packages
+    
+    * The urgency of our existing project tasks outweighed the level of effort needed to learn and then develop R packages
+
+---
+
+# Biting the bullet
+
+.pull-left[
+* using time off from projects, learned how to create R packages with Hadley Wickham's ***R Packages*** book as a guide;
+
+* learned version control using git and GitHub through the process of learning R package creation;
+
+* started off with a simple data package to learn the basics, released on GitHub and then on CRAN;
+
+* listed out and organised most commonly used R scripts to plan which packages to develop;
+
+* released first package (`zscorer`) in mid-2018
+]
+
+.pull-right[
+![](https://nutriverse.io/zscorer/reference/figures/logo.png)
+]
+
+---
+
+# Growing pains: running before we can walk
+
+.pull-left[
+* `zscorer` served our purposes well as we used the z-score calculation function in almost all of our nutrition survey projects;
+
+* immediately started different projects for other commonly used functions each requiring varying levels of complexity;
+
+* R package development capacity still remained at `n = 1` while the appetite for easily installable and distributable packages grew within small team;
+
+* additional pressure of wanting to get packages released on CRAN!
+]
+
+.pull-right[
+![](https://nutriverse.io/nipnTK/reference/figures/logo.png)
+]
+
+---
+
+class: inverse, center, middle
+
+# nutriverse packages so far
+
+![](images/nutriverse.png)
+---
+
+# Learning points and future plans
+
+* Gain more capacity for R packages development - capacity building for other members of team and nurture a potential community of developers;
+
+* Pre-release package/s to potential user base so that they can be used and tested in as many use cases as possible;
+
+* Increase demand/use of existing packages within a sector that is not as familiar with R - capacity building on R and development of tools/products that are more accessible to others but uses packages developed
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
