@@ -106,10 +106,14 @@ class: inverse, center, middle
 
 # nutriverse packages so far
 
+<img src="images/leaf_neg.png" width = "200px" align="center" />
+
 ![](images/nutriverse.png)
 ---
 
 # Learning points and future plans
+
+* Everything we were able to do so far has been made possible by an even larger ecosystem created, contributed to, and maintained by fellow individual and groups of R users
 
 * Gain more capacity for R packages development - capacity building for other members of team and nurture a potential community of developers;
 
